@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papelen - Elevating Everyday Essentials</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+        /* Luusso's natural greens */
+        --bamboo-green: #7cb342;
+        --forest-green: #4a7c59;
+        --sage: #87a96b;
+        
+        /* Tissurre's vibrant BLUE palette */
+        --tissurre-blue-light: #a8d8ff;   /* light sky blue */
+        --tissurre-blue: #4da3ff;         /* main brand blue */
+        --tissurre-navy: #2c6ecc;         /* deeper contrast */
+        
+        /* Neutral tones */
+        --cream: #faf3e0;
+        --light: #f8f9fa;
+        --dark: #2c3e50;
+        --charcoal: #34495e;
+        
+        /* Gradients */
+        --hero-gradient: linear-gradient(135deg, #7cb342 0%, #4da3ff 50%, #2c6ecc 100%);
+        --bamboo-gradient: linear-gradient(135deg, #7cb342 0%, #87a96b 100%);
+        --tissurre-gradient: linear-gradient(135deg, #a8d8ff 0%, #4da3ff 50%, #2c6ecc 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--hero-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--hero-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: var(--hero-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,133.3C960,128,1056,96,1152,90.7C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat center;
+            animation: wave 20s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-50%) translateY(-50px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: white;
+            color: var(--forest-green);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            background: var(--cream);
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--light) 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--hero-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--hero-gradient);
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--bamboo-gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        /* Brands Section */
+        .brands {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .brand-card {
+            border-radius: 25px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            height: 450px;
+        }
+
+        .brand-card.luusso {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        }
+
+        .brand-card.tissurre {
+            background: linear-gradient(135deg, #e1f5fe 0%, #bbdefb 100%);
+        }
+
+        .brand-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .brand-image {
+            height: 250px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .brand-image img {
+            max-width: 70%;   /* scale to fit */
+            max-height: 70%;  /* scale to fit */
+            object-fit: contain;
+            display: block;
+            margin: auto;
+        }
+
+        .brand-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.05));
+        }
+
+        .brand-logo {
+            font-size: 3rem;
+            font-weight: 800;
+            z-index: 1;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .brand-logo.luusso-logo {
+            background: var(--bamboo-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-logo.tissurre-logo {
+            background: var(--tissurre-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .brand-info {
+            padding: 2rem;
+        }
+
+        .brand-name {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .brand-name.luusso-name {
+            color: var(--forest-green);
+        }
+
+        .brand-name.tissurre-name {
+            color: var(--tissurre-navy);
+        }
+
+        .brand-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .brand-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: gap 0.3s ease;
+        }
+
+        .brand-link.luusso-link {
+            color: var(--bamboo-green);
+        }
+
+        .brand-link.tissurre-link {
+            color: var(--tissurre-blue);
+        }
+
+        .brand-link:hover {
+            gap: 1rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 2rem;
+            background: var(--hero-gradient);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            animation: fadeIn 1s ease;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Sustainability Section */
+        .sustainability {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #e8f5e9 0%, #fce4ec 100%);
+        }
+
+        .sustainability-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .sustainability-text h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--bamboo-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sustainability-features {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bamboo-gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Values Section */
+        .values {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:nth-child(1) {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%);
+        }
+
+        .value-card:nth-child(2) {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 50%);
+        }
+
+        .value-card:nth-child(3) {
+            background: linear-gradient(135deg, #fff9c4 0%, #fff59d 50%);
+        }
+
+        .value-card:nth-child(4) {
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 50%);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            background: var(--hero-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--tissurre-yellow);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .brands-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sustainability-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Papelen</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#brands">Our Brands</a></li>
+                <li><a href="#sustainability">Sustainability</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Where Nature Meets Innovation</h1>
+            <p>Premium paper products that combine luxury, sustainability, and vibrant living</p>
+            <a href="#brands" class="cta-button">Discover Our Brands</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Who We Are</h2>
+            <p class="section-subtitle">Papelen brings together sustainable bamboo innovation and colorful kitchen essentials</p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">🎯</div>
+                    <h3>Our Mission</h3>
+                    <p>To transform everyday paper products into premium experiences that enhance quality of life while respecting our planet and future generations.</p>
+                </div>
+                
+                <div class="about-card">
+                    <div class="about-icon">🌱</div>
+                    <h3>Innovation</h3>
+                    <p>From bamboo technology to vibrant, food-safe colors, we're constantly pushing boundaries to create products that exceed expectations.</p>
+                </div>
+                
+                <div class="about-card">
+                    <div class="about-icon">💚</div>
+                    <h3>Sustainability</h3>
+                    <p>100% committed to environmental stewardship through bamboo cultivation, responsible sourcing, and eco-friendly production.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="brands" id="brands">
+        <div class="container">
+            <h2 class="section-title">Our Premium Brands</h2>
+            <p class="section-subtitle">Discover our portfolio of exceptional paper products</p>
+            
+            <div class="brands-grid">
+                <div class="brand-card luusso">
+                    <div class="brand-image">
+                        <a href="https://www.luusso.com/" rel="home">
+                            <img src="https://www.luusso.com/wp-content/uploads/2024/11/luusso_tm_green.svg" alt="Luusso Logo">
+                        </a>
+                    </div>
+                    <div class="brand-info">
+                        <h3 class="brand-name luusso-name">Luusso</h3>
+                        <p class="brand-description">Experience the purity of bamboo. Premium toilet paper that saves trees while providing unmatched softness. Chemical-free, biodegradable, and designed for a healthier planet.</p>
+                        <a href="https://luusso.com" class="brand-link luusso-link">
+                            Visit Luusso.com →
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="brand-card tissurre">
+                    <div class="brand-image">
+                        <a href="https://www.tissurre.com/" rel="home">
+                            <img src="https://www.tissurre.com/wp-content/uploads/2025/07/tissurre_dark.svg" 
+                                 alt="Tissurre Logo" width="180">
+                        </a>
+                    </div>
+                    <div class="brand-info">
+                        <h3 class="brand-name tissurre-name">Tissurre</h3>
+                        <p class="brand-description">Bring joy to your kitchen with vibrant, premium paper towels. 2-ply strength meets food-safe colors. Canadian-made quality that makes everyday tasks delightful.</p>
+                        <a href="https://www.tissurre.com" class="brand-link tissurre-link">
+                            Visit Tissurre.com →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+        <div class="container">
+            <h2 class="section-title">Our Core Values</h2>
+            <p class="section-subtitle">What drives us every day</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🌿</div>
+                    <h3>Nature First</h3>
+                    <p>Bamboo over trees, saving forests for future generations</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🎨</div>
+                    <h3>Colorful Living</h3>
+                    <p>Bringing joy and vibrancy to everyday essentials</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">👩‍💼</div>
+                    <h3>Women Empowerment</h3>
+                    <p>Woman-owned and operated, supporting growth and leadership</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🍁</div>
+                    <h3>Canadian Quality</h3>
+                    <p>Proudly made in Canada with the highest standards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Bamboo & Sustainable</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Trees Cut</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Premium Brands</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Future Generations Protected</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Section -->
+    <section class="sustainability" id="sustainability">
+        <div class="container">
+            <div class="sustainability-content">
+                <div class="sustainability-text">
+                    <h3>Building a Legacy for Future Generations</h3>
+                    <p>At Papelen, we believe luxury and environmental responsibility are inseparable. Every product we create is designed with our planet's future in mind.</p>
+                    
+                    <div class="sustainability-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">🎋</div>
+                            <div>
+                                <strong>Bamboo Innovation</strong>
+                                <p>Fast-growing bamboo that regenerates naturally</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">♻️</div>
+                            <div>
+                                <strong>Elemental Chlorine Free</strong>
+                                <p>No harsh chemicals, safe for sensitive skin</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">🌈</div>
+                            <div>
+                                <strong>Food-Safe Colors</strong>
+                                <p>Vibrant, safe dyes that brighten your day</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sustainability-image">
+                    <div style="width: 100%; height: 400px; background: var(--bamboo-gradient); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                        🌍
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Papelen</h4>
+                <p>Elevating everyday essentials through innovation and sustainability.</p>
+                <p style="margin-top: 1rem; font-style: italic;">Where bamboo meets color, creating a better tomorrow.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Our Brands</h4>
+                <ul>
+                    <li><a href="https://luusso.com">Luusso - Bamboo Toilet Paper</a></li>
+                    <li><a href="https://www.tissurre.com">Tissurre - Colorful Paper Towels</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#sustainability">Sustainability</a></li>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Women Leadership</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li>Email: info@papelen.com</li>
+                    <li>Phone: 1-800-PAPELEN</li>
+                    <li>Made with ❤️ in Canada</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Papelen. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navigation background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.about-card, .brand-card, .stat-item, .feature-item, .value-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target) {
+            if (target === '∞') {
+                element.textContent = '∞';
+                return;
+            }
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = element.dataset.suffix ? target + element.dataset.suffix : target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = element.dataset.suffix 
+                        ? Math.floor(current) + element.dataset.suffix 
+                        : Math.floor(current);
+                }
+            }, 20);
+        }
+
+        document.querySelectorAll('.stat-number').forEach(el => {
+            const target = el.textContent.trim();
+            if (target !== '∞') {
+                animateCounter(el, parseInt(target));
+            }
+        });
+    </script>
+</body>
+</html>
