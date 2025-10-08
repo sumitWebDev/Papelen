@@ -45,9 +45,8 @@
         nav {
             position: fixed;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            background: transparent;
+            box-shadow: none;
             z-index: 1000;
             transition: all 0.3s ease;
         }
@@ -75,15 +74,20 @@
             50% { opacity: 0.8; }
         }
 
+        .logo img {
+            height: 140px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+
         .nav-links {
             display: flex;
             gap: 2.5rem;
             list-style: none;
         }
-
+        /* Nav links default (over hero/blue background) */
         .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
+            color: white; /* visible over hero image */
             font-weight: 500;
             position: relative;
             transition: color 0.3s ease;
@@ -96,7 +100,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--hero-gradient);
+            background: white; /* visible over blue */
             transition: width 0.3s ease;
         }
 
@@ -104,24 +108,30 @@
             width: 100%;
         }
 
+        /* Nav links when scrolled (white background) */
+        nav.scrolled .nav-links a {
+            color: var(--dark); /* dark text over white nav */
+        }
+
+        nav.scrolled .nav-links a::after {
+            background: var(--hero-gradient); /* underline visible over white */
+        }
+
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: var(--hero-gradient);
+            background: 
+             /* optional overlay for text readability */
+                url('./assets/background.jpg') center/cover no-repeat; /* your image path */
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
+            opacity: 0.8
         }
 
         .hero::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,133.3C960,128,1056,96,1152,90.7C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat center;
-            animation: wave 20s linear infinite;
         }
 
         @keyframes wave {
@@ -586,7 +596,8 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">Papelen</div>
+            <div class="logo"><img src="./assets/Papelen_Logo.png" alt="Papelen Logo" style="height:100px; width:auto;">
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -704,30 +715,6 @@
                     <div class="value-icon">🍁</div>
                     <h3>Canadian Quality</h3>
                     <p>Proudly made in Canada with the highest standards</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Bamboo & Sustainable</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">0</div>
-                    <div class="stat-label">Trees Cut</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">2</div>
-                    <div class="stat-label">Premium Brands</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">∞</div>
-                    <div class="stat-label">Future Generations Protected</div>
                 </div>
             </div>
         </div>
@@ -889,6 +876,23 @@
             const target = el.textContent.trim();
             if (target !== '∞') {
                 animateCounter(el, parseInt(target));
+            }
+        });
+
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                document.querySelector('.logo img').style.height = '90px';
+            } else {
+                nav.classList.remove('scrolled');
+                nav.style.background = 'transparent';
+                nav.style.backdropFilter = 'none';
+                nav.style.boxShadow = 'none';
+                document.querySelector('.logo img').style.height = '140px';
             }
         });
     </script>
