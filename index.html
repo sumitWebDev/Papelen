@@ -216,6 +216,7 @@
             background: var(--hero-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-weight: bold;
         }
 
         .section-subtitle {
@@ -272,7 +273,13 @@
         /* Brands Section */
         .brands {
             padding: 6rem 2rem;
-            background: white;
+            background: #d9e35c;
+        }
+        .brands .section-title{
+            color:#ff2300b0;
+            background: none;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: #ff2300b0;
         }
 
         .brands-grid {
@@ -624,6 +631,133 @@
                 padding:0px !important;
             }
         }
+
+        .timeline {
+        position: relative;
+        max-width: 100%;
+        margin: 100px auto;
+        }
+        .containr {
+        padding: 10px 50px;
+        position: relative;
+        width: 50%;
+        animation: movedown 1s linear forwards;
+        opacity: 0;
+        }
+        @keyframes movedown {
+        0% {
+            opacity: 1;
+            transform: translate(-30px);
+        }
+        100% {
+            opacity: 1;
+            transform: translate(0px);
+        }
+        }
+        .text-box {
+        padding: 20px 30px;
+        background: #fff;
+        position: relative;
+        border-radius: 5px;
+        font-size: 15px;
+        }
+        .left-container {
+        left: 0;
+        }
+        .right-container {
+        left: 50%;
+        }
+        .containr img {
+        position: absolute;
+        width: 40px;
+        border-radius: 50%;
+        right: -20px;
+        top: 35px;
+        z-index: 10;
+        }
+        .container .brand-image img{
+            position: relative;
+            width: 100%;
+            border-radius: 0px;
+            top: 0px;
+            right: 0px;
+        }
+        .right-container img {
+        left: -20px;
+        }
+        .timeline::after {
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 100%;
+        background: #fff;
+        top: 0px;
+        left: 50%;
+        margin-left: -3px;
+        z-index: -1;
+        animation: moveline 6s linear forwards;
+        }
+        @keyframes moveline {
+        0% {
+            height: 0;
+        }
+        100% {
+            height: 100%;
+        }
+        }
+        .text-box h2 {
+        font-weight: 600;
+        }
+        .text-box small {
+        display: inline-block;
+        margin-bottom: 5px;
+        }
+        .left-container-arrow {
+        height: 0;
+        width: 0;
+        position: absolute;
+        top: 28px;
+        z-index: 1;
+        border-top: 15px soild transparent;
+        border-bottom: 15px soild transparent;
+        border-left: 15px soild #fff;
+        right: -15px;
+        }
+        .containr:nth-child(1) {
+        animation-delay: 0s;
+        }
+        .containr:nth-child(2) {
+        animation-delay: 1s;
+        }
+        @media screen and (max-width: 600px) {
+        .timeline {
+            margin: 50px auto;
+        }
+        .timeline::after {
+            left: 31px;
+        }
+        .containr {
+            width: 100%;
+            padding-left: 80px;
+            padding-right: 25px;
+        }
+        .text-box {
+            font-size: 13px;
+        }
+        .text-box small {
+            font-size: 10px;
+        }
+        .right-container {
+            left: 0;
+        }
+        .left-container img {
+            left: 0px;
+        }
+        .right-container img {
+            left: 3px;
+        }
+    }
+
     </style>
 </head>
 <body>
@@ -697,41 +831,36 @@
         <div class="container">
             <h2 class="section-title">Our Premium Brands</h2>
             <p class="section-subtitle">Discover our portfolio of exceptional paper products</p>
-            
-            <div class="brands-grid">
-                <div class="brand-card luusso">
+            <div class="timeline">
+
+                <div class="containr left-container">
+                    <img width="40" height="40" src="https://img.icons8.com/pulsar-gradient/48/unchecked-circle.png" alt="unchecked-circle">
                     <div class="brand-image">
-                        <a href="https://www.luusso.com/" rel="home">
-                            <img src="https://www.luusso.com/wp-content/uploads/2024/11/luusso_tm_green.svg" alt="Luusso Logo">
-                        </a>
-                    </div>
-                    <div class="brand-info">
-                        <h3 class="brand-name luusso-name">Luusso</h3>
-                        <p class="brand-description">Experience the purity of bamboo. Premium toilet paper that saves trees while providing unmatched softness. Chemical-free, biodegradable, and designed for a healthier planet.</p>
-                        <a href="https://luusso.com" class="brand-link luusso-link">
-                            Visit Luusso.com →
-                        </a>
-                    </div>
+                    <a href="https://www.luusso.com/" rel="home">
+                        <img src="https://www.luusso.com/wp-content/uploads/2024/11/luusso_tm_green.svg" alt="Luusso Logo">
+                    </a>
                 </div>
-                
-                <div class="brand-card tissurre">
+              
+                </div>
+              
+                <div class="containr right-container">
+                    <img width="40" height="40" src="https://img.icons8.com/pulsar-gradient/48/unchecked-circle.png" alt="unchecked-circle">                  
+                    
                     <div class="brand-image">
                         <a href="https://www.tissurre.com/" rel="home">
                             <img src="https://www.tissurre.com/wp-content/uploads/2025/07/tissurre_dark.svg" 
                                  alt="Tissurre Logo" width="180">
                         </a>
                     </div>
-                    <div class="brand-info">
-                        <h3 class="brand-name tissurre-name">Tissurre</h3>
-                        <p class="brand-description">Bring joy to your kitchen with vibrant, premium paper towels. 2-ply strength meets food-safe colors. Canadian-made quality that makes everyday tasks delightful.</p>
-                        <a href="https://www.tissurre.com" class="brand-link tissurre-link">
-                            Visit Tissurre.com →
-                        </a>
-                    </div>
+                  </div>
                 </div>
-            </div>
+              
+              </div>
         </div>
     </section>
+
+
+
 
     <!-- Values Section -->
     <section class="values">
@@ -812,46 +941,36 @@
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Papelen</h4>
-                <p>Elevating everyday essentials through innovation and sustainability.</p>
-                <p style="margin-top: 1rem; font-style: italic;">Where bamboo meets color, creating a better tomorrow.</p>
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <h5>Papelen Inc</h5>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5 class="mb-3">Connect With Us</h5>
+                    <div class="d-flex justify-content-md-end justify-content-start gap-3">
+                        <a href="https://instagram.com" target="_blank" class="text-white fs-4" aria-label="Instagram">
+                            <img width="48" height="48" src="https://img.icons8.com/color/48/facebook-new.png" alt="facebook-new"/>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" class="text-white fs-4" aria-label="Facebook">
+                            <img width="48" height="48" src="https://img.icons8.com/fluency/48/instagram-new.png" alt="instagram-new"/>
+                        </a>
+                        <a href="mailto:contact@example.com" class="text-white fs-4" aria-label="Email">
+                            <img width="48" height="48" src="https://img.icons8.com/fluency/48/circled-envelope.png" alt="circled-envelope"/>                        
+                        </a>
+                    </div>
+                </div>
             </div>
-            
-            <div class="footer-section">
-                <h4>Our Brands</h4>
-                <ul>
-                    <li><a href="https://luusso.com">Luusso - Bamboo Toilet Paper</a></li>
-                    <li><a href="https://www.tissurre.com">Tissurre - Colorful Paper Towels</a></li>
-                </ul>
+            <hr class="my-4 bg-white">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2024 Papelen Inc. All rights reserved.</p>
+                </div>
             </div>
-            
-            <div class="footer-section">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#sustainability">Sustainability</a></li>
-                    <li><a href="#">Our Story</a></li>
-                    <li><a href="#">Women Leadership</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <ul>
-                    <li>Email: info@papelen.com</li>
-                    <li>Phone: 1-800-PAPELEN</li>
-                    <li>Made with ❤️ in Canada</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 Papelen. All rights reserved.</p>
         </div>
     </footer>
+
 
     <script>
         // Smooth scrolling for navigation links
