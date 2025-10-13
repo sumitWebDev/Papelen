@@ -604,6 +604,25 @@
         .carousel-control-next-icon {
             background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='cream'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>");
         }
+        @media (max-width: 767.98px) {
+            .carousel-control-prev-icon {
+                background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' stroke='cream' stroke-width='3' fill='none'><path d='M11.354 1.646L5.707 8l5.647 5.646'/></svg>");
+            }
+
+            .carousel-control-next-icon {
+                background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' stroke='cream' stroke-width='3' fill='none'><path d='M4.646 1.646L10.293 8 4.646 13.354'/></svg>");
+            }
+
+            /* Optional: increase arrow size for mobile */
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 50px;  /* default is 15% */
+                height: 50px;
+            }
+            #about{
+                padding:0px !important;
+            }
+        }
     </style>
 </head>
 <body>
