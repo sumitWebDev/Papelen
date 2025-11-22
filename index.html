@@ -273,13 +273,13 @@
         /* Brands Section */
         .brands {
             padding: 6rem 2rem;
-            background: #d9e35c;
+            background: #E1EAF1;
         }
         .brands .section-title{
-            color:#ff2300b0;
+            color:#8A6640;
             background: none;
             -webkit-background-clip: text;
-            -webkit-text-fill-color: #ff2300b0;
+            -webkit-text-fill-color: #8A6640;
         }
 
         .brands-grid {
@@ -758,17 +758,42 @@
         }
     }
 
+.sustainability-text {
+    flex: 1 1 50%;
+}
+
+.sustainability-image {
+    flex: 1 1 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.sustainability-image img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 12px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .sustainability-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo"><img src="./assets/logo_1.png" alt="Papelen Logo" style="height:100px; width:auto;">
+            <div class="logo"><img src="./assets/Papelen_Logo.png" alt="Papelen Logo" style="height:100px; width:auto;">
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <!-- <li><a href="#about">About</a></li> -->
+                <li><a href="#products">Our Products</a></li>
                 <li><a href="#brands">Our Brands</a></li>
                 <li><a href="#sustainability">Sustainability</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -785,9 +810,9 @@
         </div>
     </section>
 
-    <section class="about py-5" id="about">
+    <section class="about py-5" id="products">
         <div class="container">
-          <h2 class="section-title text-center mb-3">Our Business Sectors</h2>
+          <h2 class="section-title text-center mb-3">Our Products</h2>
           <p class="section-subtitle text-center mb-5">
             Papelen delivers high-quality paper essentials designed for performance, comfort, and sustainability across everyday needs.
           </p>
@@ -870,9 +895,12 @@
             
             <div class="values-grid">
                 <div class="value-card">
-                    <div class="value-icon">🌿</div>
-                    <h3>Nature First</h3>
-                    <p>Bamboo over trees, saving forests for future generations</p>
+                    <div class="value-icon">🏢</div>
+                    <h3>Complete Paper Solutions</h3>
+            <p>
+                Delivering reliable, high-quality toilet paper, paper towels, paper cores, 
+                and commercial hygiene products that improve everyday living.
+            </p>
                 </div>
                 
                 <div class="value-card">
@@ -902,39 +930,39 @@
             <div class="sustainability-content">
                 <div class="sustainability-text">
                     <h3>Building a Legacy for Future Generations</h3>
-                    <p>At Papelen, we believe luxury and environmental responsibility are inseparable. Every product we create is designed with our planet's future in mind.</p>
+                    <p>At Papelen, we believe premium quality and everyday comfort should go hand in hand. Every product is crafted to deliver a superior experience for homes and businesses.</p>
                     
                     <div class="sustainability-features">
+                        
                         <div class="feature-item">
-                            <div class="feature-icon">🎋</div>
+                            <div class="feature-icon">🏭</div>
                             <div>
-                                <strong>Bamboo Innovation</strong>
-                                <p>Fast-growing bamboo that regenerates naturally</p>
+                                <strong>Advanced Manufacturing</strong>
+                                <p>State-of-the-art production ensures consistent quality and reliable performance</p>
                             </div>
                         </div>
                         
                         <div class="feature-item">
-                            <div class="feature-icon">♻️</div>
+                            <div class="feature-icon">🧴</div>
                             <div>
-                                <strong>Elemental Chlorine Free</strong>
-                                <p>No harsh chemicals, safe for sensitive skin</p>
+                                <strong>Safe & Gentle</strong>
+                                <p>Products designed to be soft, skin-friendly, and suitable for daily use</p>
                             </div>
                         </div>
                         
                         <div class="feature-item">
-                            <div class="feature-icon">🌈</div>
+                            <div class="feature-icon">📦</div>
                             <div>
-                                <strong>Food-Safe Colors</strong>
-                                <p>Vibrant, safe dyes that brighten your day</p>
+                                <strong>Tailored for Every Need</strong>
+                                <p>From household essentials to commercial hygiene products, we deliver solutions that fit every space</p>
                             </div>
                         </div>
+        
                     </div>
                 </div>
                 
                 <div class="sustainability-image">
-                    <div style="width: 100%; height: 400px; background: var(--bamboo-gradient); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
-                        🌍
-                    </div>
+                    <img src="./assets/products.png" alt="Papelen Logo">
                 </div>
             </div>
         </div>
@@ -945,7 +973,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mb-3 mb-md-0">
-                    <h5>Papelen Inc</h5>
+                    <h5><img src="./assets/Papelen_Logo.png" alt="Papelen Logo" style="height: 90px; width:auto;"></h5>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <h5 class="mb-3">Connect With Us</h5>
@@ -965,7 +993,7 @@
             <hr class="my-4 bg-white">
             <div class="row">
                 <div class="col-12 text-center">
-                    <p class="mb-0">&copy; 2024 Papelen Inc. All rights reserved.</p>
+                    <p class="mb-0">&copy; 2025 Papelen Inc. All rights reserved.</p>
                 </div>
             </div>
         </div>
